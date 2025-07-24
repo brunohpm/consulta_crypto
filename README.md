@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📊 Consulta Crypto
 
-## Getting Started
+Aplicação web para visualização de informações detalhadas de criptomoedas, como gráficos de preço dos últimos 7 dias, estatísticas de mercado e muito mais.
 
-First, run the development server:
+---
+
+## 🚀 Tecnologias utilizadas
+
+- [Next.js](https://nextjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Recharts](https://recharts.org/)
+- [CoinGecko API](https://www.coingecko.com/en/api)
+
+---
+
+## 📦 Instalação e uso local
 
 ```bash
+# 1. Clone o repositório
+git clone https://github.com/brunohpm/consulta_crypto.git
+cd consulta_crypto
+
+# 2. Instale as dependências
+npm install
+
+# 3. Crie um arquivo .env.local se necessário
+touch .env.local
+
+# 4. Execute o projeto localmente
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🔗 Deploy
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+A aplicação está disponível online via [Vercel](https://vercel.com/):
 
-## Learn More
+👉 **https://consulta-crypto.vercel.app**
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🧪 Scripts úteis
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm run dev       # roda o servidor local em localhost:3000
+npm run build     # build de produção
+npm run lint      # verificação de código com ESLint
+npm run start     # iniciar o servidor após o build
+```
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📁 Estrutura de pastas
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+/app
+  /coin/[id]      -> Página de detalhes de criptomoeda
+  /components     -> Componentes reutilizáveis (PriceChart, Card, etc.)
+  /lib            -> Funções auxiliares e chamadas API
+  /types          -> Tipagens globais do projeto
+```
+
+---
+
+## 🧑‍💻 Autor
+
+Bruno Monteiro  
+[github.com/brunohpm](https://github.com/brunohpm)
