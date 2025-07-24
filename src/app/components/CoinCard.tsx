@@ -31,7 +31,7 @@ duration-200"
               className="rounded-full mr-3"
             />
             <div>
-              <h3 className="font-semibold text-lg text-gray-900 dark:textwhite">
+              <h3 className="font-semibold text-lg text-gray-900 dark:text-white">
                 {coin.name}
               </h3>
               <p
@@ -66,7 +66,7 @@ dark:text-gray-300 px-2 py-1 rounded-full font-medium"
             className={`text-sm font-medium ${
               isPositive
                 ? "text-green-600 dark:text-green-400"
-                : "text-red-600dark:text-red-400"
+                : "text-red-600 dark:text-red-400"
             }`}
           >
             {formatPercentage(coin.price_change_percentage_24h)}
