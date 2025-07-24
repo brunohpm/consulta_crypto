@@ -1,5 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
-import { getTopCoins, searchCoins } from "@/app/lib/api";
+import {
+  getTopCoins,
+  searchCoins,
+  getCoinMarketDataFromSearch,
+} from "@/app/lib/api";
+
 // Hook para buscar as top 20 criptomoedas
 export function useTopCoins() {
   return useQuery({
@@ -34,5 +39,15 @@ export function useSearchCoins(query: string) {
       return failureCount < 2; // Menos tentativas para busca
     },
     retryDelay: 1000,
+  });
+}
+
+export function useMarketSearchCoins(query: string) {
+  return useQuery({
+    queryKey: ["marketSearchCoins", query],
+    queryFn: () => getCoinMarketDataFromSearch(query),
+    enabled: query.trim().length > 0,
+    staleTime: 2 * 60 * 1000,
+    gcTime: 5 * 60 * 1000,
   });
 }
