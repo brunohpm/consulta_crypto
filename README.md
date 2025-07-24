@@ -64,6 +64,22 @@ npm run start     # iniciar o servidor após o build
 
 ---
 
+## 📁 Executar o docker
+
+Instalar o Docker.
+
+```bash
+npm run build
+docker build -t consulta_crypto .
+docker run -p 3000:3000 consulta-crypto
+```
+
+## 📁 Executar os Testes
+
+```bash
+npm run test
+```
+
 ## 🧑‍💻 Autor
 
 Bruno Monteiro  
