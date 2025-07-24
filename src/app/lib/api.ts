@@ -27,6 +27,40 @@ export async function searchCoins(query: string): Promise<SearchResponse> {
   return response.json();
 }
 
+export async function getCoinMarketDataFromSearch(
+  query: string
+): Promise<Coin[]> {
+  const search = await searchCoins(query);
+  const ids = search.coins.map((coin) => coin.id).slice(0, 30);
+
+  if (ids.length === 0) return [];
+
+  try {
+    const res = await fetch(
+      `${API_BASE_URL}/coins/markets?vs_currency=usd&ids=${ids.join(
+        ","
+      )}&sparkline=false`
+    );
+
+    if (res.status === 429) {
+      throw new Error(
+        "Limite de requisições da API atingido. Tente novamente em instantes."
+      );
+    }
+
+    if (!res.ok) {
+      throw new Error("Falha ao buscar dados das moedas.");
+    }
+
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    // Você pode enviar logs aqui se quiser
+    console.error("Erro na busca de dados de mercado:", error);
+    throw error; // ainda lançamos para o hook capturar
+  }
+}
+
 export async function getCoinChart(id: string): Promise<MarketChartData> {
   const res = await fetch(
     `${API_BASE_URL}/coins/${id}/market_chart?vs_currency=usd&days=7`
